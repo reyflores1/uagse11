@@ -3,8 +3,11 @@ import java.util.Scanner;
 public class getNumbers{
     public static void main(String[] args){
        Scanner in = new Scanner(System.in);
-       System.out.print("what's your name fam?");
+       System.out.print("Pick your numbers bro");
        String x  = in.nextLine();
-       System.out.println("Nice to meet you, " + x);
+       nums = "";
+       if (String x == "exit"){
+           System.out.print(nums);
+       }
     }
 }
