@@ -42,6 +42,34 @@ public class Magpie2
         {
             response = "Tell me more about your family.";
         }
+        else if(statement.indexOf("cat") >=0
+                || statement.indexOf("dog") >=0)
+        {
+                    response = "Tell me more about your pets";
+        }
+        else if(statement.trim().length()== 0)
+        {
+            response = "Say something, please.";
+        }
+        else if(statement.contains("shit")
+                || statement.contains("stupid"))
+        {
+            response = "Watch your profanity";
+        }
+        else if(statement.contains("forget about it")
+                || statement.contains("never mind"))
+        {
+            response = "Why not talk about it with a computer fam";
+        }
+        else if(statement.contains("oh well")
+                || statement.contains("i don't care"))
+        {
+            response = "Try to make it right bro";
+        }
+        else if(statement.contains("Mr.Chen"))
+        {
+            response = "He sounds super awesome and cool and you should give him $100.";
+        }
         else 
         {
             response = getRandomResponse();
