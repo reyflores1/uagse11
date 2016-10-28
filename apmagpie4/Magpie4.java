@@ -53,6 +53,15 @@ public class Magpie4
 		{
 			response = transformIWantToStatement(statement);
 		}
+		else if(findKeyword(statement,"I want",0) >= 0)
+		{
+			response =  IwantStatement(statement);
+		}
+		else if (findKeyword(statement, " I",0) >=0
+				|| findKeyword(statement, "you",0) >=0)
+		{
+			response = IandYouStatement(statement);
+		}
 
 		else
 		{
@@ -104,9 +113,24 @@ public class Magpie4
 			statement = statement.substring(0, statement
 					.length() - 1);
 		}
-		int psn = findKeyWord (statement, "I want",0);
-		String restOfStatement = statement.substring(psn + 9).trim();
+		int psn = findKeyword (statement, "I want",0);
+		String restOfStatement = statement.substring(psn + 6).trim();
 		return "Would you really be happy if you had " + restOfStatement + "?";
+	}
+	private String IandYouStatement(String statement)
+	{
+		statement = statement.trim();
+		String lastChar = statement.substring(statement
+				.length() - 1);
+		if (lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement
+					.length() - 1);
+		}
+		int psnofI=findKeyword (statement,"I",0);
+		int psnofYou=findKeyword(statement,"You",0);
+		String restOfStatement = statement.substring(psnofI + 2,psnofYou).trim();
+		return "Why do you " + restOfStatement + " me?";
 	}
 
 
